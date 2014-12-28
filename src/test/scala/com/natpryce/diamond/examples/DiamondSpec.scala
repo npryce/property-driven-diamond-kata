@@ -9,7 +9,7 @@ class DiamondSpec extends UnitSpec {
     forAll (inputChar) { c => assert(diamondLines(c).nonEmpty) }
   }
 
-  def diamondLines(c : Char) : Vector[String] = {
-    Vector()
+  def diamondLines(c : Char) = {
+    Diamond.diamond(c).lines.toVector
   }
 }
