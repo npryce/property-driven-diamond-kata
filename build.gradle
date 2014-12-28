@@ -1,0 +1,20 @@
+apply plugin: 'scala'
+
+ext.scalaLanguageVersion = 2.11
+ext.scalaVersion = "${scalaLanguageVersion}.4"
+
+def scalaLib(name) {
+    return name + '_' + scalaLanguageVersion
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.scala-lang:scala-library:${scalaVersion}"
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.scalatest', name: scalaLib('scalatest'), version: '2.2.1'
+    testCompile group: 'org.scalacheck', name: scalaLib('scalacheck'), version: '1.12.1'
+}
+

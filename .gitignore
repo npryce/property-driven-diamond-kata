@@ -1,0 +1,6 @@
+.idea/*.xml
+.idea/libraries/
+.idea/.name
+*.iml
+.gradle/
+build/
