@@ -10,6 +10,10 @@ class DiamondSpec extends UnitSpec {
     forAll (inputChar) { c => assert(diamondLines(c).length == lineCount(c)) }
   }
 
+  "squareness" in {
+    forAll (inputChar) { c => assert(diamondLines(c) forall {_.length == lineCount(c)}) }
+  }
+  
   def diamondLines(c : Char) = {
     Diamond.diamond(c).lines.toVector
   }
