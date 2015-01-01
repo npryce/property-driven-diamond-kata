@@ -2,9 +2,8 @@ package com.natpryce.diamond.examples
 
 object Diamond {
   def diamond(c: Char) : String = {
-    "A\n" * (ord(c)+1)
+    "A\n" * lineCount(c)
   }
 
-  def ord(c: Char) : Int = c - 'A'
-
+  def lineCount(c: Char) : Int = (c - 'A')+1
 }

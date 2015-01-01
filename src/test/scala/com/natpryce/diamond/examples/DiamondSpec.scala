@@ -1,13 +1,13 @@
 package com.natpryce.diamond.examples
 
+import com.natpryce.diamond.examples.Diamond.lineCount
 import org.scalacheck._
-import Diamond.ord
 
 class DiamondSpec extends UnitSpec {
   val inputChar = Gen.alphaUpperChar
 
   "number of lines" in {
-    forAll (inputChar) { c => assert(diamondLines(c).length == ord(c)+1) }
+    forAll (inputChar) { c => assert(diamondLines(c).length == lineCount(c)) }
   }
 
   def diamondLines(c : Char) = {
