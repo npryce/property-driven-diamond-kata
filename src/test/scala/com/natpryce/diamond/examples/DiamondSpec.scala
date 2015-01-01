@@ -5,13 +5,14 @@ import org.scalacheck._
 class DiamondSpec extends UnitSpec {
   val inputChar = Gen.alphaUpperChar
 
-  "produces an odd number lines" in {
-    forAll (inputChar) { c => assert(isOdd(diamondLines(c).length)) }
+  def ord(c: Char) : Int = c - 'A'
+
+  "number of lines" in {
+    forAll (inputChar) { c => assert(diamondLines(c).length == ord(c)+1) }
   }
 
   def diamondLines(c : Char) = {
     Diamond.diamond(c).lines.toVector
   }
 
-  def isOdd(n : Int) = n % 2 == 1
 }
