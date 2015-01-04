@@ -1,15 +1,13 @@
 package com.natpryce.diamond.examples
 
 object Diamond {
-  def diamond(c: Char) : String = {
-    val side: Int = squareSide(c)
-
-    val topHalf = for (letter <- 'A' to c) yield lineFor(side, letter)
+  def diamond(maxLetter: Char) : String = {
+    val topHalf = for (letter <- 'A' to maxLetter) yield lineFor(maxLetter, letter)
     (topHalf ++ topHalf.reverse.tail).mkString("\n")
   }
 
-  def lineFor(length: Int, letter: Char): String = {
-    val halfLength = length/2
+  def lineFor(maxLetter: Char, letter: Char): String = {
+    val halfLength = ord(maxLetter)
     val letterIndex = halfLength - ord(letter)
     val halfLine = " "*letterIndex + letter + " "*(halfLength-letterIndex)
 
