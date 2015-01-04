@@ -13,5 +13,5 @@ object Diamond {
     lc.toString * side
   }
 
-  def squareSide(c: Char) : Int = (c - 'A')+1
+  def squareSide(c: Char) : Int = 2*(c - 'A') + 1
 }
