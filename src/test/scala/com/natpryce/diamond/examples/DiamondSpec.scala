@@ -15,7 +15,7 @@ class DiamondSpec extends UnitSpec {
   }
 
   "size of square" in {
-    forAll (inputChar) { c => assert(diamondLines(c).length == squareSide(c)) }
+    forAll (inputChar) { c => assert(diamondLines(c).length == 2*ord(c) + 1) }
   }
 
   "is vertically symmetrical" in {
@@ -47,8 +47,6 @@ class DiamondSpec extends UnitSpec {
       }
     }
   }
-
-  def squareSide(c: Char) : Int = 2*ord(c) + 1
 
   def firstHalfOf[AS, A, That](v: AS)(implicit asSeq: AS => Seq[A], cbf: CanBuildFrom[AS, A, That]) = {
     v.slice(0, (v.length+1)/2)
