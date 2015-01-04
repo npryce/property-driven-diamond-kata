@@ -4,7 +4,13 @@ object Diamond {
   def diamond(c: Char) : String = {
     val side: Int = squareSide(c)
 
-    (for (lc <- 'A' to c) yield lc.toString * side) mkString "\n"
+    val topHalf = for (lc <- 'A' to c) yield lineFor(side, lc)
+    val bottomHalf = topHalf.slice(0, topHalf.length-1).reverse
+    (topHalf ++ bottomHalf).mkString("\n")
+  }
+
+  def lineFor(side: Int, lc: Char): String = {
+    lc.toString * side
   }
 
   def squareSide(c: Char) : Int = (c - 'A')+1
