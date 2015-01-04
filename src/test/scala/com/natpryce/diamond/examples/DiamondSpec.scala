@@ -29,6 +29,15 @@ class DiamondSpec extends UnitSpec {
     }
   }
   
+  "is vertically symmetrical" in {
+    forAll(inputChar) { c =>
+      val allLines = diamondLines(c)
+      val topHalf = allLines.slice(0, allLines.size / 2 + 1)
+      val bottomHalf = allLines.slice(allLines.size / 2, allLines.size)
+
+      assert(topHalf == bottomHalf.reverse)
+    }
+  }
   
   def diamondLines(c : Char) = {
     Diamond.diamond(c).lines.toVector
