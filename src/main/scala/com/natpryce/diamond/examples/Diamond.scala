@@ -2,8 +2,10 @@ package com.natpryce.diamond.examples
 
 object Diamond {
   def diamond(c: Char) : String = {
-    "A\n" * lineCount(c)
+    val side: Int = squareSide(c)
+
+    ("A" * side + "\n") * side
   }
 
-  def lineCount(c: Char) : Int = (c - 'A')+1
+  def squareSide(c: Char) : Int = (c - 'A')+1
 }
