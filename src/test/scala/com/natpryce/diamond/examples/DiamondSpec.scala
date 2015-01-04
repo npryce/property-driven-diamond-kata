@@ -6,12 +6,14 @@ import org.scalacheck._
 class DiamondSpec extends UnitSpec {
   val inputChar = Gen.alphaUpperChar
 
-  "number of lines" in {
-    forAll (inputChar) { c => assert(diamondLines(c).length == squareSide(c)) }
+  "squareness" in {
+    forAll (inputChar) { c =>
+      val lines = diamondLines(c)
+      assert(lines forall {line => line.length == lines.length}) }
   }
 
-  "squareness" in {
-    forAll (inputChar) { c => assert(diamondLines(c) forall {_.length == squareSide(c)}) }
+  "size of square" in {
+    forAll (inputChar) { c => assert(diamondLines(c).length == squareSide(c)) }
   }
   
   def diamondLines(c : Char) = {
