@@ -14,7 +14,5 @@ object Diamond {
     halfLine ++ halfLine.reverse.tail
   }
 
-  def squareSide(c: Char) : Int = 2*ord(c) + 1
-
   def ord(c: Char): Int = c - 'A'
 }

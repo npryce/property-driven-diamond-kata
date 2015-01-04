@@ -1,6 +1,6 @@
 package com.natpryce.diamond.examples
 
-import com.natpryce.diamond.examples.Diamond.squareSide
+import com.natpryce.diamond.examples.Diamond.ord
 import org.scalacheck._
 
 import scala.collection.generic.CanBuildFrom
@@ -47,6 +47,8 @@ class DiamondSpec extends UnitSpec {
       }
     }
   }
+
+  def squareSide(c: Char) : Int = 2*ord(c) + 1
 
   def firstHalfOf[AS, A, That](v: AS)(implicit asSeq: AS => Seq[A], cbf: CanBuildFrom[AS, A, That]) = {
     v.slice(0, (v.length+1)/2)
